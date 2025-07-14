@@ -6,9 +6,13 @@ metadata:
     app: myapp
     type: frontend
 spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      type: frontend
   template:
     metadata:
-      name: myapp-pod
       labels:
         app: myapp
         type: frontend
@@ -16,8 +20,3 @@ spec:
       containers:
       - name: nginx-container
         image: nginx
-  replicas: 3
-  selector:
-    matchLabels:
-      app: myapp
-      type: frontend
